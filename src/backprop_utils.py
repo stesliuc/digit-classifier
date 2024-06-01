@@ -37,7 +37,7 @@ def one_hot(Y):
     return one_hot_Y
 
 
-def backward_prop(Z1, A1, Z2, A2, W1, W2, X, Y):
+def backward_prop(Z1, A1, Z2, A2, W1, W2, X, Y, m):
     one_hot_Y = one_hot(Y)
     dZ2 = A2 - one_hot_Y
     dW2 = 1 / m * dZ2.dot(A1.T)
