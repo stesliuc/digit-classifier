@@ -10,32 +10,28 @@ This will train a neural net on our training data, and return the final accuracy
 ## Architecture
 Our neural net has two-layers. Input layer $a^{[0]}$ will have 784 units corresponding to the 784 pixels in each 28x28 input image. A hidden layer $a^{[1]}$ will have 10 units with ReLU activation, and finally our output layer $a^{[2]}$ will have 10 units corresponding to the ten digit classes with softmax activation.
 
-**Forward propagation**
-
+## Algorithms
+### Forward Propagation
 $$Z^{[1]} = W^{[1]} X + b^{[1]}$$
 $$A^{[1]} = g_{\text{ReLU}}(Z^{[1]}))$$
 $$Z^{[2]} = W^{[2]} A^{[1]} + b^{[2]}$$
 $$A^{[2]} = g_{\text{softmax}}(Z^{[2]})$$
-
-**Backward propagation**
-
+### Backward Propagation
 $$dZ^{[2]} = A^{[2]} - Y$$
 $$dW^{[2]} = \frac{1}{m} dZ^{[2]} A^{[1]T}$$
 $$dB^{[2]} = \frac{1}{m} \Sigma {dZ^{[2]}}$$
 $$dZ^{[1]} = W^{[2]T} dZ^{[2]} .* g^{[1]\prime} (z^{[1]})$$
 $$dW^{[1]} = \frac{1}{m} dZ^{[1]} A^{[0]T}$$
 $$dB^{[1]} = \frac{1}{m} \Sigma {dZ^{[1]}}$$
-
-**Parameter updates**
-
+### Parameter Updates
 $$W^{[2]} := W^{[2]} - \alpha dW^{[2]}$$
 $$b^{[2]} := b^{[2]} - \alpha db^{[2]}$$
 $$W^{[1]} := W^{[1]} - \alpha dW^{[1]}$$
 $$b^{[1]} := b^{[1]} - \alpha db^{[1]}$$
 
-**Vars and shapes**
+## Variables
 
-Forward prop
+#### Forward prop
 
 - $A^{[0]} = X$: 784 x m
 - $Z^{[1]} \sim A^{[1]}$: 10 x m
@@ -45,7 +41,7 @@ Forward prop
 - $W^{[1]}$: 10 x 10 (as $W^{[2]} A^{[1]} \sim Z^{[2]}$)
 - $B^{[2]}$: 10 x 1
 
-Backprop
+#### Backprop
 
 - $dZ^{[2]}$: 10 x m ($~A^{[2]}$)
 - $dW^{[2]}$: 10 x 10
