@@ -4,6 +4,9 @@ Training a neural net to recognize hand drawn digits using linear algebra.
 
 Data comes from the [MNIST dataset](https://www.kaggle.com/datasets/hojjatk/mnist-dataset). Download this data and place into the `/data` folder to run.
 
+To run an example pipeline, first run `conda activate digit-classifier`, and then run `sh scripts/pipeline.sh`.
+This will train a neural net on our training data, and return the final accuracy on test data.
+
 ## Architecture
 Our NN will have a simple two-layer architecture. Input layer $a^{[0]}$ will have 784 units corresponding to the 784 pixels in each 28x28 input image. A hidden layer $a^{[1]}$ will have 10 units with ReLU activation, and finally our output layer $a^{[2]}$ will have 10 units corresponding to the ten digit classes with softmax activation.
 
